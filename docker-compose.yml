@@ -1,7 +1,7 @@
 version: "3.0"
 services:
     wordpress:
-        image: wordpress
+        image: wordpress:5.7.2-php7.4-apache
         restart: unless-stopped
         volumes:
             - wordpress:/var/www/html
@@ -14,7 +14,7 @@ services:
             WORDPRESS_DB_PASSWORD: Aigh5Oir
 
     db:
-        image: mariadb
+        image: mariadb:10.6.3-focal
         restart: unless-stopped
         volumes:
             - mariadb:/var/lib/mysql
@@ -24,7 +24,7 @@ services:
             MYSQL_USER: wordpress
             MYSQL_PASSWORD: Aigh5Oir
             
-    phpmyadmin:
+    phpmyadmin:5.1.1-apache
         image: phpmyadmin
         restart: unless-stopped
         ports:
