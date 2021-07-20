@@ -24,8 +24,8 @@ services:
             MYSQL_USER: wordpress
             MYSQL_PASSWORD: Aigh5Oir
             
-    phpmyadmin:5.1.1-apache
-        image: phpmyadmin
+    phpmyadmin
+        image: phpmyadmin:5.1.1-apache
         restart: unless-stopped
         ports:
             - 8000:80
