@@ -3,7 +3,11 @@ services:
     wordpress:
         image: wordpress
         restart: unless-stopped
-        enviroment:
+        volumes:
+            - wordpress:/var/www/html
+        ports:
+            - "8080:80"
+        environment:
             WORDPRESS_DB_HOST: db
             WORDPRESS_DB_NAME: wordpress
             WORDPRESS_DB_USER: wordpress
@@ -12,8 +16,13 @@ services:
     db:
         image: mariadb
         restart: unless-stopped
+        volumes:
+            - mariadb:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ebeeph2Y
             MYSQL_DATABASE: wordpress
             MYSQL_USER: wordpress
             MYSQL_PASSWORD: Aigh5Oir
+volumes:
+    mariadb:
+    wordpress:
