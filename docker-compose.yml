@@ -1,4 +1,5 @@
-version: "3.0"
+version: "3.1"
+
 services:
     wordpress:
         image: wordpress:5.7.2-php7.4-apache
@@ -28,7 +29,7 @@ services:
         image: phpmyadmin:5.1.1-apache
         restart: unless-stopped
         ports:
-            - 8000:80
+            - "8000:80"
         environment:
             PMA_HOST: db
 
